@@ -10,7 +10,6 @@ export const axiosService = {
 };
 
 function get(apiEndpoint) {
-    console.log(getOptions(), 'getOptions');
     return axios.get(config.baseUrl + apiEndpoint, getOptions()).then((response) => {
         return response;
     }).catch((err) => {
