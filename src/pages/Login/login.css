@@ -1,0 +1,40 @@
+.card-form {
+    width: 30rem;
+    padding: 40px;
+    box-shadow: 10px 10px 58px 0px rgba(0,0,0,0.75);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+.container {
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    justify-content: center;
+}
+.time-pickers{ 
+    width: 100%;
+}
+.button-submit {
+    display: flex;
+    justify-content: flex-end;
+}
+.button-cancel {
+    margin-right: 20px;
+}
+.login-header{
+    display: flex;
+    justify-content: center;
+}
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.btn-submit {
+    display: flex;
+    justify-content: center;
+}
+.error-div{
+color: red;
+font-size: 12px;
+}

@@ -1,0 +1,24 @@
+.card-form {
+    width: 30rem;
+    padding: 40px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    justify-content: center;
+}
+.time-pickers{ 
+    width: 100%;
+}
+.button-submit {
+    display: flex;
+    justify-content: flex-end;
+}
+.button-cancel {
+    margin-right: 20px;
+}
+.d-flex{
+    display: flex;
+}
+

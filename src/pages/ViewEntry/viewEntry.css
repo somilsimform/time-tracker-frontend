@@ -1,0 +1,65 @@
+.d-flex {
+    display: flex;
+}
+.mr-3{ 
+    margin-right: 1.2rem;
+}
+.react-select {
+    width: 30%;
+}
+.button-cancel {
+    margin-left: 20px;
+}
+.section-div {
+    margin: 40px 0px;
+}
+.table-wrapper {
+    display: flex;
+    margin: auto;
+    width: 80%;
+}
+.button-cancel {
+    margin-right: 20px;
+}
+.table-logs {
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    width: 80%;
+}
+.date-label {
+    width: 300px;
+}
+.date-wrapper {
+    margin: 20px;
+}
+.justify-space-between {
+    justify-content: space-between;
+}
+.mr-72 {
+    margin-right: 72px;
+}
+.card-form {
+    width: 30rem;
+    padding: 40px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    justify-content: center;
+}
+.time-pickers{ 
+    width: 100%;
+}
+.button-submit {
+    display: flex;
+    justify-content: flex-end;
+}
+.button-cancel {
+    margin-right: 20px;
+}
+.d-flex{
+    display: flex;
+}
+
