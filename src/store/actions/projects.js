@@ -37,7 +37,8 @@ import {
     GET_LOGS_BY_VIEW_START,
     GET_LOGS_BY_VIEW_SUCCESS,
     GET_LOGS_BY_VIEW_ERROR,
-    UPDATE_LOGS_STATUS
+    UPDATE_LOGS_STATUS,
+    CLEAR_ALL_LOGS
 } from './actionTypes'
 
 export const getProjects = () => async (dispatch) => {
@@ -59,7 +60,6 @@ export const getProjects = () => async (dispatch) => {
     try {
         await dispatch(getProjectsStart())
         const response = await getAllProjects()
-        console.log(response, 'RESPONSE');
         await dispatch(getProjectsSuccess(response?.data?.data?.projects.map(project => {
             return { value: project?.id, label: project?.name }
         })))
@@ -119,7 +119,6 @@ export const addProjectLogs = (body) => async (dispatch) => {
 
     await dispatch(addProjectLogsStart())
     const resp = await addProjectLog(body)
-    console.log(resp, 'RESP');
     if (resp?.status != 200) {
         dispatch(addProjectLogsError())
         toast.error('Please fill in all the details!')
@@ -151,21 +150,7 @@ export const getLogsByProjectId = (body) => async (dispatch) => {
 
     await dispatch(getLogsByProjectIdStart())
     const resp = await getLogsByProjectID(body)
-    console.log(resp, 'resp?.data?.logs');
     await dispatch(getLogsByProjectIdSuccess(resp?.data?.data?.logs))
-    // if (resp) {
-
-    //     if (resp?.status != 200) {
-    //         dispatch(getLogsByProjectIdError())
-    //         toast.error('Please select the project!')
-    //     } else {
-    //         toast.info('Log added successfully!')
-    //     }
-    // }
-    // try {
-    // } catch (error) {
-    //     
-    // }
 }
 
 export const getLogsByTaskId = (body) => async (dispatch) => {
@@ -247,7 +232,6 @@ export const getLogsByViewTYPE = (body) => async (dispatch) => {
 
     await dispatch(getLogsByViewStart())
     const resp = await getLogsByViewType(body)
-    console.log(resp, 'RESP-VIEW');
     await dispatch(getLogsByViewSuccess(resp?.data?.data))
 }
 
@@ -278,7 +262,7 @@ export const updateProjectLogs = (body) => async (dispatch) => {
     }
 }
 
-export const getAllLogs = (status) => async dispatch => {
+export const getAllLogs = () => async dispatch => {
     const getLogsByTaskIdStart = (payload) => ({
         type: GET_LOGS_BY_TASK_ID_START,
         payload,
@@ -295,15 +279,21 @@ export const getAllLogs = (status) => async dispatch => {
     })
 
     await dispatch(getLogsByTaskIdStart())
-    const resp = await getAllLogsByStatus(status)
+    const resp = await getAllLogsByStatus()
     await dispatch(getLogsByTaskIdSuccess(resp?.data?.data?.logs))
 }
 
-export const updateProjectLogStatus = async (body) => {
+export const updateProjectLogStatus = (body) => async (dispatch) => {
+    const getLogsByTaskIdSuccess = (payload) => ({
+        type: UPDATE_LOGS_STATUS,
+        payload,
+    })
     const resp = await updateLogStatus(body)
-    if (resp) {
-        return {
-            type: UPDATE_LOGS_STATUS
-        }
+    dispatch(getLogsByTaskIdSuccess())
+}
+
+export const clearLogsValues = () => {
+    return {
+        type: CLEAR_ALL_LOGS
     }
 }

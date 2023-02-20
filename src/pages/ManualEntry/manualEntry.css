@@ -1,6 +1,7 @@
 .card-form {
     width: 30rem;
     padding: 40px;
+    box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 20%)
 }
 .container {
     display: flex;
@@ -20,5 +21,12 @@
 }
 .d-flex{
     display: flex;
+}
+.time-pickers{
+    background-color: hsl(0, 0%, 100%);
+    border: 1px solid hsl(0, 0%, 80%);
+    min-height: 38px;
+    border-radius: 4px;
+    padding: 2px 8px;
 }
 

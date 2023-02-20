@@ -24,7 +24,8 @@ import {
     UPDATE_PROJECT_LOG_START,
     UPDATE_PROJECT_LOG_SUCCESS,
     UPDATE_PROJECT_LOG_ERROR,
-    UPDATE_LOGS_STATUS
+    UPDATE_LOGS_STATUS,
+    CLEAR_ALL_LOGS
 } from '../actions/actionTypes'
 
 const initialState = {
@@ -43,6 +44,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case CLEAR_ALL_LOGS:
+            return {
+                ...state,
+                logs: [],
+                viewLogs: [],
+            }
         case LOGOUT_USER:
             return {
                 ...state,

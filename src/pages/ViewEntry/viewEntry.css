@@ -24,20 +24,26 @@
 .table-logs {
     display: flex;
     margin: auto;
-    margin-top: 40px;
-    width: 80%;
+    margin-top: 5px;
+    width: 100%;
 }
 .date-label {
-    width: 300px;
+    display: block;
 }
 .date-wrapper {
-    margin: 20px;
+    margin: 0 0 20px 0 ;
 }
 .justify-space-between {
     justify-content: space-between;
 }
-.mr-72 {
-    margin-right: 72px;
+.justify-flex-end {
+    justify-content: flex-end;
+}
+.mr-2 {
+    margin-right: 15px;
+}
+.mt-24 {
+    margin-top: 24px;
 }
 .card-form {
     width: 30rem;
@@ -62,4 +68,16 @@
 .d-flex{
     display: flex;
 }
-
+.time-pickers{
+    background-color: hsl(0, 0%, 100%);
+    border: 1px solid hsl(0, 0%, 80%);
+    min-height: 38px;
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+.range {
+    margin-bottom: 5px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}

@@ -1,5 +1,5 @@
 
-import { getProjects, getAllLogs, updateProjectLogStatus, getProjectTasks, updateProjectLogs, getLogsByViewTYPE, getLogsByTaskId, getTasksByUserId, clearTasks, addProjectLogs, getLogsByProjectId } from "./projects"
+import { getProjects, getAllLogs, clearLogsValues, updateProjectLogStatus, getProjectTasks, updateProjectLogs, getLogsByViewTYPE, getLogsByTaskId, getTasksByUserId, clearTasks, addProjectLogs, getLogsByProjectId } from "./projects"
 import { loginUser, logoutUser } from './auth'
 
 export {
@@ -15,5 +15,6 @@ export {
     logoutUser,
     updateProjectLogs,
     getAllLogs,
-    updateProjectLogStatus
+    updateProjectLogStatus,
+    clearLogsValues
 }

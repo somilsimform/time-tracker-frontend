@@ -15,7 +15,7 @@ const API_ENDPOINTS = {
         GetAllTaskByProjectID: '/projects/tasks'
     },
     ADMIN: {
-        GetAllLogs: '/admin/allLogs',
+        GetAllLogs: '/admin/all-logs',
         UpdateLogStatus: '/admin/logs/update/status'
     }
 }

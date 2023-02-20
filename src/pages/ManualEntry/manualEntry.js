@@ -24,10 +24,6 @@ const ManualEntry = () => {
     const { projects, tasks, isSuccess, user } = useSelector(
         (state) => state.project
     )
-    console.log(user, "IS SUCCESS");
-    useSelector(
-        (state) => console.log(state, "USE SELECTOR")
-    )
     const [date, setDate] = useState(new Date())
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
@@ -45,9 +41,7 @@ const ManualEntry = () => {
     const handleClick = async () => {
         var now = moment(endDate); //todays date
         var end = moment(startDate); // another date
-        console.log(now, end);
         const user = JSON.parse(localStorage.getItem('user'))
-        console.log(moment(end), new Date(end), "END");
         let payload = {
             "user_id": user?.id,
             "task_id": selectedTasks?.value,
@@ -59,8 +53,11 @@ const ManualEntry = () => {
             "status": "pending",
             "project_id": selectedProject?.value
         }
-        console.log(payload, 'PAYLOAD');
-        await dispatch(addProjectLogs(payload))
+        if (moment(endDate).isBefore(moment(startDate))) {
+            toast.error('Start time should be less than end time')
+        } else {
+            await dispatch(addProjectLogs(payload))
+        }
     }
     return (
         <div>
@@ -113,7 +110,7 @@ const ManualEntry = () => {
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>In time</Form.Label>
-                            <DatePicker className='time-pickers' selected={startDate} onChange={(date) => { console.log(date, '124s'); setStartDate(date) }} showTimeSelect
+                            <DatePicker className='time-pickers' selected={startDate} onChange={(date) => { setStartDate(date) }} showTimeSelect
                                 showTimeSelectOnly
                                 timeIntervals={1}
                                 timeCaption="Time"
@@ -129,14 +126,12 @@ const ManualEntry = () => {
                                 dateFormat="h:mm aa"
                             />
                         </Form.Group>
+
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Comment</Form.Label>
                             <Form.Control name="textarea" onChange={(e) => setComments(e?.target?.value)} as="textarea" rows={3} placeholder="Comments" />
                         </Form.Group>
                         <div className='button-submit'>
-                            <Button className='button-cancel' type="button" >
-                                Cancel
-                            </Button>
                             <Button variant="primary" type="button" onClick={handleClick}>
                                 Submit
                             </Button>

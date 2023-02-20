@@ -10,7 +10,7 @@ const Header = () => {
     const navigation = useNavigate()
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Container>
+            <Container fluid>
                 <Navbar.Brand className="justify-content-start" href="/dashboard">Time Tracker</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">

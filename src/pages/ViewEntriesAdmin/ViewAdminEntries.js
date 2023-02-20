@@ -1,30 +1,35 @@
 
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Table, Modal } from 'react-bootstrap'
+import { Form, Button, Table, Modal, Container } from 'react-bootstrap'
 import Select from 'react-select'
+import './ViewAdminEntries.css'
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    getAllLogs
+    getAllLogs,
+    updateProjectLogStatus
 } from '../../store/actions'
 const ManualEntry = () => {
 
     const dispatch = useDispatch()
     const user = JSON.parse(localStorage.getItem('user'))
     useEffect(() => {
-        dispatch(getAllLogs('pending'))
+        dispatch(getAllLogs())
     }, [])
 
     const { logs, } = useSelector(
         (state) => state.project
     )
 
-    const updateStatus = (e, statusValue) => {
-
+    const updateStatus = (e, statusValue, id) => {
+        dispatch(updateProjectLogStatus({ status: statusValue, id }))
+        dispatch(getAllLogs())
     }
+
     return (
-        <>
-            <h1 className='d-flex justify-content-center'>View Entries</h1>
+        <Container fluid>
+
+            <h1 className='d-flex justify-content-center mt-5 mb-3'>View Entries</h1>
 
             <div className='table-logs d-block'>
 
@@ -50,9 +55,10 @@ const ManualEntry = () => {
                                     <td>{log?.date}</td>
                                     <td>{log?.time}</td>
                                     <td>{log?.status}</td>
+
                                     <td>
-                                        <Button onClick={(e) => updateStatus('accepted')} variant="success">Accept</Button>
-                                        <Button onClick={(e) => updateStatus('rejected')} variant="danger" className='ml-5'>Reject</Button>
+                                        <Button disabled={log?.status !== 'pending'} onClick={(e) => updateStatus(e, 'accepted', log?.id)} variant="success">Accept</Button>
+                                        <Button disabled={log?.status !== 'pending'} onClick={(e) => updateStatus(e, 'rejected', log?.id)} variant="danger" className='ml-1'>Reject</Button>
                                     </td>
                                 </tr>
                             ))
@@ -68,7 +74,7 @@ const ManualEntry = () => {
                 </Table>
 
             </div>
-        </>
+        </Container>
     )
 }
 
