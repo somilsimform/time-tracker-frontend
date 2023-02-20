@@ -1,6 +1,7 @@
 import {
     userLogin
 } from '../../services/auth.service'
+import { toast } from 'react-toastify'
 import {
     AUTH_ERROR,
     AUTH_USER,
@@ -28,9 +29,18 @@ export const loginUser = (body) => async (dispatch) => {
         dispatch(loginStart())
         const response = await userLogin(body)
         // setting token in local storage
-        localStorage.setItem('token', response.data?.data?.token)
-        localStorage.setItem('user', JSON.stringify(response?.data?.data?.user))
-        dispatch(loginSuccess(response.data.data))
+        if (response?.status === 200) {
+            localStorage.setItem('token', response.data?.data?.token)
+            localStorage.setItem('user', JSON.stringify(response?.data?.data?.user))
+            dispatch(loginSuccess(response.data.data))
+        } else if (response?.status === 400) {
+            toast.error('Please fill in the proper details.')
+        }
+        else if (response?.status === 401) {
+            toast.error('Unauthorized User.')
+        } else {
+            toast.error('User not found.')
+        }
     } catch (error) {
         dispatch(loginError(error))
     }

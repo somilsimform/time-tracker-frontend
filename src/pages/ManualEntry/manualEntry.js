@@ -56,7 +56,11 @@ const ManualEntry = () => {
         if (moment(endDate).isBefore(moment(startDate))) {
             toast.error('Start time should be less than end time')
         } else {
-            await dispatch(addProjectLogs(payload))
+            dispatch(addProjectLogs(payload))
+            setSelectedProject(null)
+            setSelectedTasks(null)
+            setComments('')
+
         }
     }
     return (
@@ -129,7 +133,7 @@ const ManualEntry = () => {
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Comment</Form.Label>
-                            <Form.Control name="textarea" onChange={(e) => setComments(e?.target?.value)} as="textarea" rows={3} placeholder="Comments" />
+                            <Form.Control value={comments} name="textarea" onChange={(e) => setComments(e?.target?.value)} as="textarea" rows={3} placeholder="Comments" />
                         </Form.Group>
                         <div className='button-submit'>
                             <Button variant="primary" type="button" onClick={handleClick}>

@@ -29,3 +29,5 @@ email: 'employee@gmail.com',
 password: 'employee'
 
 4. The project will run on localhost:3000, Go to http://localhost:3000 on your browser.
+
+Video Demo:- https://www.loom.com/share/bf8a93d27e1041daa0873c7f80ac2490

@@ -5,6 +5,7 @@ import { logoutUser } from '../../store/actions'
 import { useDispatch } from 'react-redux';
 
 const Header = () => {
+    const user = JSON.parse(localStorage.getItem('user'))
     const location = useLocation()
     const dispatch = useDispatch()
     const navigation = useNavigate()
@@ -15,10 +16,14 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                     <Nav>
-                        <Nav className="me-auto">
-                            <Nav.Link href="/manual-entry" active={location.pathname === '/manual-entry'}>Manual Entry</Nav.Link>
-                            <Nav.Link href="/view-entry" active={location.pathname === '/view-entry'}>View Entries</Nav.Link>
-                        </Nav>
+                        {
+                            user?.role === 'employee' &&
+
+                            <Nav className="me-auto">
+                                <Nav.Link href="/manual-entry" active={location.pathname === '/manual-entry'}>Manual Entry</Nav.Link>
+                                <Nav.Link href="/view-entry" active={location.pathname === '/view-entry'}>View Entries</Nav.Link>
+                            </Nav>
+                        }
                         <Nav.Link onClick={() => {
                             localStorage.clear()
                             dispatch(logoutUser())

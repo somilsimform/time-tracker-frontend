@@ -62,7 +62,6 @@ export default (state = initialState, action) => {
         case AUTH_USER_LOADING:
             return { ...state, isLoading: true }
         case AUTH_USER:
-            console.log(action.payload?.user, 'REDUCER-Project');
             return {
                 ...state,
                 isSuccess: true,
