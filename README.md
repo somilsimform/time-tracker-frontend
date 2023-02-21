@@ -25,7 +25,7 @@ email: 'admin@gmail.com',
 password: 'admin'
 
 role: employee
-email: 'employee@gmail.com',
+email: 'emp@gmail.com',
 password: 'employee'
 
 4. The project will run on localhost:3000, Go to http://localhost:3000 on your browser.
