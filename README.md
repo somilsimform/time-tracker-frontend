@@ -8,15 +8,14 @@ PREREQUISITES
 
 STEPS TO RUN
 
-1. Clone the repo
+2. Clone the repo [time-tracker-frontend](https://github.com/somilsimform/time-tracker-frontend)
 
-https://github.com/somilsimform/time-tracker-frontend
 
-2. After clone, we need to install the node modules. Start a terminal and run below command.
+3. After clone, we need to install the node modules. Start a terminal and run below command.
 
-npm install
+`npm install`
 
-3. After this run the below command to start the application.
+4. After this run the below command to start the application.
 
 Use the following creds:-
 
@@ -28,6 +27,6 @@ role: employee
 email: 'emp@gmail.com',
 password: 'employee'
 
-4. The project will run on localhost:3000, Go to http://localhost:3000 on your browser.
+5. The project will run on localhost:3000, Go to http://localhost:3000 on your browser.
 
 Video Demo:- https://www.loom.com/share/bf8a93d27e1041daa0873c7f80ac2490

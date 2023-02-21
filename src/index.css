@@ -5,9 +5,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #EEF1F3;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.page-wrapper {
+  padding: 40px 65px;
+}
+
+.page-title {
+  font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+margin: 0 0 24px;
+color: #000000;
+}
+.react-datepicker--time-only .react-datepicker__triangle::after, .react-datepicker--time-only .react-datepicker__triangle::before {
+  left: -15px !important;
 }
