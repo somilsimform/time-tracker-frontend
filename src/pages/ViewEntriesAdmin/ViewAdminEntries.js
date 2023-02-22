@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Table, Modal, Container } from "react-bootstrap";
-import Select from "react-select";
+import { Form, Button, Table, Container } from "react-bootstrap";
 import "./ViewAdminEntries.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllLogs, updateProjectLogStatus } from "../../store/actions";
 const ManualEntry = () => {
   const dispatch = useDispatch();
+  const [logsData, setLogs] = useState([])
   const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     dispatch(getAllLogs());
@@ -19,12 +19,16 @@ const ManualEntry = () => {
     dispatch(getAllLogs());
   };
 
+  useEffect(() => {
+    setLogs(logs)
+  }, [logs])
+
   return (
     <Container fluid>
       <div className="page-wrapper">
         <h1 className="d-flex page-title">View Entries</h1>
         <div className="table-logs d-block">
-          <Table  bordered hover className='white-bg'>
+          <Table bordered hover className='white-bg'>
             <thead>
               <tr>
                 <th>#</th>

@@ -6,7 +6,7 @@ import {
   Modal,
   Container,
   Row,
-  Col, 
+  Col,
 } from "react-bootstrap";
 import "./viewEntry.css";
 import Select from "react-select";
@@ -395,16 +395,16 @@ const ManualEntry = () => {
                         <td>{log?.status}</td>
                         {log?.status === "pending" ? (
                           <td onClick={(e) => handleEditIconClick(e, log)}>
-                              <OverlayTrigger
-                                placement="top"
-                                delay={{ show: 250, hide: 400 }}
-                                overlay={renderTooltip}
-                                >
-                               <span> <EditIcon /></span>
+                            <OverlayTrigger
+                              placement="top"
+                              delay={{ show: 250, hide: 400 }}
+                              overlay={renderTooltip}
+                            >
+                              <span> <EditIcon /></span>
                             </OverlayTrigger>
                           </td>
                         ) : (
-                          <td onClick={(e) => handleEditIconClick(e, log)}></td>
+                          <td>N/A</td>
                         )}
                       </tr>
                     ))}
@@ -453,14 +453,14 @@ const ManualEntry = () => {
                             <td>{log?.date}</td>
                             <td>{log?.time}</td>
                             <td onClick={(e) => handleEditIconClick(e, log)}>
-                               
-                            <OverlayTrigger
+
+                              <OverlayTrigger
                                 placement="top"
                                 delay={{ show: 250, hide: 400 }}
                                 overlay={renderTooltip}
-                                >
-                               <span> <EditIcon /></span>
-                            </OverlayTrigger>
+                              >
+                                <span> <EditIcon /></span>
+                              </OverlayTrigger>
                             </td>
                           </tr>
                         ))}
